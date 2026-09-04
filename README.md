@@ -1,8 +1,6 @@
 # brca-variant-circularity
 
-Code, processed data and trained models behind our paper *Unbiased Machine
-Learning for BRCA1/2 Variant Interpretation by Overcoming Data Circularity*.
-
+Code, processed data, and trained models 
 ## What's in here
 
 ```
@@ -34,7 +32,7 @@ Run from the repo root, not from inside pipeline/ - the scripts use paths
 like `pipeline/internal_pool.csv` and expect to be launched from here. Also
 run them in order, each stage needs the last one's output.
 
-## We actually tested this, not just wrote it and hoped
+## We tested
 
 Ran `10_external_validation.py` for real against the models and data that
 are actually sitting in this repo (no retraining, just loading and scoring)
@@ -56,7 +54,7 @@ xgboost==3.3.0, and that version can't even load our own `model_xgboost.pkl`
 2.1.4 loads it fine, so that's what's pinned now. If you're reading an old
 copy of this file with 3.3.0 in it, that's the bug, update it.
 
-## Things that won't just work out of the box, and why
+## More informnation
 
 - `BRCA_final_dataset.csv` and `BRCA_hybrid_modeling_table.csv` are shipped
   as the exact frozen tables used for every result in the paper, not as
