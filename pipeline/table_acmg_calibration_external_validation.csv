@@ -1,0 +1,7 @@
+split,check,n,pct_pathogenic
+pooled_genome_wide,PP3_Strong bin,67,98.5
+pooled_genome_wide,BP4_Strong bin,228,0.0
+gene_specific_BRCA1,PP3_Strong bin,50,98.0
+gene_specific_BRCA1,BP4_Strong bin,117,0.0
+gene_specific_BRCA2,PP3_Strong bin,17,100.0
+gene_specific_BRCA2,BP4_Strong bin,109,0.0

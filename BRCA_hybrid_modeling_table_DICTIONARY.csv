@@ -1,0 +1,10 @@
+column,group,type,description
+variant_id,Identity,string,Compact variant key chr:pos ref>alt (hg38).
+gene,Identity,string,BRCA1 or BRCA2.
+protein_change,Annotation,string,"Amino-acid change, 1-letter, canonical transcript."
+split_role,Split,string,"internal-train (used to fit models), internal-test (held-out internal test), external-validation (ENIGMA held-out set)."
+ClinPred..ESM1b (11 cols),Feature 1-11,float,The 11 in-silico scores (same as the main dataset). ESM1b sign is reversed (more negative = more damaging).
+BiLSTM_seq_prob,Feature 12,float,"THE 12TH FEATURE. Probability (0-1) from the BiLSTM deep-learning model reading the 201bp DNA window. Model-derived, SNV-only. This is what makes the Hybrid_XGB a 12-feature model."
+seq_prob_method,Provenance,string,How BiLSTM_seq_prob was generated: 'out-of-fold (5-fold)' for training rows (leakage-free: each row scored by a BiLSTM that never saw it); 'full-model' for test/external rows (scored by the BiLSTM trained on the full training set). Do NOT compare the two as if identically produced.
+clinical_label,Label,string,Pathogenic or Benign.
+label_binary,Label,int,"1=Pathogenic, 0=Benign."

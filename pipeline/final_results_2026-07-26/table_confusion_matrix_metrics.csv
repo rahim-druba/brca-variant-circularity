@@ -1,0 +1,15 @@
+eval_set,model,threshold,TN,FP,FN,TP,accuracy,sensitivity,specificity,precision,f1
+internal-test,RandomForest,0.5,1628,31,10,53,0.9762,0.8413,0.9813,0.631,0.7211
+internal-test,SVM,0.5,1650,9,19,44,0.9837,0.6984,0.9946,0.8302,0.7586
+internal-test,GradientBoosting,0.5,1605,54,10,53,0.9628,0.8413,0.9675,0.4953,0.6235
+internal-test,XGBoost,0.5,1643,16,14,49,0.9826,0.7778,0.9904,0.7538,0.7656
+internal-test,ML_VotingEnsemble,0.5,1651,8,14,49,0.9872,0.7778,0.9952,0.8596,0.8167
+internal-test,StackingEnsemble,0.5,1610,49,9,54,0.9663,0.8571,0.9705,0.5243,0.6506
+internal-test,Hybrid-B,0.5,1619,40,11,52,0.9704,0.8254,0.9759,0.5652,0.671
+external,RandomForest,0.5,268,2,1,73,0.9913,0.9865,0.9926,0.9733,0.9799
+external,SVM,0.5,270,0,6,68,0.9826,0.9189,1.0,1.0,0.9577
+external,GradientBoosting,0.5,256,14,0,74,0.9593,1.0,0.9481,0.8409,0.9136
+external,XGBoost,0.5,268,2,7,67,0.9738,0.9054,0.9926,0.971,0.9371
+external,ML_VotingEnsemble,0.5,269,1,5,69,0.9826,0.9324,0.9963,0.9857,0.9583
+external,StackingEnsemble,0.5,260,10,0,74,0.9709,1.0,0.963,0.881,0.9367
+external,Hybrid-B,0.5,259,11,0,74,0.968,1.0,0.9593,0.8706,0.9308

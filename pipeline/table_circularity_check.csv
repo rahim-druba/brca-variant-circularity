@@ -1,0 +1,7 @@
+,n_features,cv_roc_auc,roc_auc,auprc,f1
+full13_internal,13.0,0.9679,0.9754,0.8049,0.7656
+full13_external,13.0,0.9679,0.9982,0.9936,0.9371
+robust6_internal,6.0,0.9543,0.978,0.771,0.7059
+robust6_external,6.0,0.9543,0.9968,0.9894,0.9333
+biased7_internal,7.0,0.9482,0.9536,0.6972,0.6929
+biased7_external,7.0,0.9482,0.9915,0.9687,0.8993

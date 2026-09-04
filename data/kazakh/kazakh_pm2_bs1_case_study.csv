@@ -1,0 +1,26 @@
+source_paper,cdna_hgvs,clinical_significance,kazakh_af,evidence
+Akilzhanova 2013 (CAJGH),c.10234A>G,"Likely benign (neutral polymorphism, >30% freq)",0.03125,BS1_Kazakh
+Akilzhanova 2013 (CAJGH),c.3113A>G,"Likely benign (neutral polymorphism, >30% freq)",0.287,BS1_Kazakh
+Samigatova 2026 (Sci Reports),c.181T>G,Likely pathogenic,0.0,PM2_Kazakh_Supporting
+Samigatova 2026 (Sci Reports),c.517-1G>A,Pathogenic,0.0,PM2_Kazakh_Supporting
+Samigatova 2026 (Sci Reports),c.3744_3747del,Pathogenic,0.0,PM2_Kazakh_Supporting
+Samigatova 2026 (Sci Reports),c.5470_5477del,Pathogenic,0.0,PM2_Kazakh_Supporting
+Samigatova 2026 (Sci Reports),c.981_982del,Pathogenic,0.0,PM2_Kazakh_Supporting
+Samigatova 2026 (Sci Reports),c.3214del,Pathogenic,0.0,PM2_Kazakh_Supporting
+Samigatova 2026 (Sci Reports),c.3607C>T,Pathogenic,0.0,PM2_Kazakh_Supporting
+Samigatova 2026 (Sci Reports),c.5277+1G>A,Pathogenic,0.0,PM2_Kazakh_Supporting
+Samigatova 2026 (Sci Reports),c.4065_4068del,Pathogenic,0.0,PM2_Kazakh_Supporting
+Zhunussova 2023 (Oncotarget),c.2T>C,Pathogenic,0.0,PM2_Kazakh_Supporting
+Zhunussova 2023 (Oncotarget),c.7567_7568del,Pathogenic,0.0,PM2_Kazakh_Supporting
+Zhunussova 2023 (Oncotarget),c.6468_6469delTC,Pathogenic,0.0,PM2_Kazakh_Supporting
+Zhunussova 2023 (Oncotarget),c.2808_2811del,Pathogenic,0.0,PM2_Kazakh_Supporting
+Zhunussova 2023 (Oncotarget),c.2442delC,Pathogenic,0.0,PM2_Kazakh_Supporting
+Zhunussova 2023 (Oncotarget),c.5467+1G>A,Pathogenic,0.0,PM2_Kazakh_Supporting
+Zhunussova 2023 (Oncotarget),c.5278-2del,Pathogenic,0.0,PM2_Kazakh_Supporting
+Zhunussova 2023 (Oncotarget),c.5266dupC,Pathogenic,0.0,PM2_Kazakh_Supporting
+Zhunussova 2023 (Oncotarget),c.5161C>T,Pathogenic,0.0,PM2_Kazakh_Supporting
+Zhunussova 2023 (Oncotarget),c.181T>G,Pathogenic,0.0,PM2_Kazakh_Supporting
+Zhunussova 2023 (Oncotarget),c.9253del,Pathogenic,0.0,PM2_Kazakh_Supporting
+Samigatova 2026 (Sci Reports),c.470_471del,Pathogenic,0.0,PM2_Kazakh_Supporting
+Akilzhanova 2013 (CAJGH),c.2350A>G,VUS,0.0,PM2_Kazakh_Supporting
+Akilzhanova 2013 (CAJGH),c.1067A>G,VUS,0.02455,BS1_Kazakh

@@ -1,0 +1,29 @@
+column,group,type,description,source,notes
+variant_id,Identity,string,Compact variant key: chr:pos ref>alt (hg38).,BRCA Exchange raw,Unique per row.
+gene,Identity,string,Gene symbol (BRCA1/BRCA2; a few flanking genes).,BRCA Exchange raw,
+chromosome,Identity,int,"13=BRCA2, 17=BRCA1.",BRCA Exchange raw,
+position_hg38,Identity,int,"Genomic position, GRCh38/hg38.",BRCA Exchange raw,
+ref_allele,Identity,string,Reference allele.,BRCA Exchange raw,
+alt_allele,Identity,string,Alternate allele.,BRCA Exchange raw,
+variant_consequence,Annotation,string,missense/synonymous/stopgain/frameshift/splicing/UTR/intronic/intergenic.,ANNOVAR (local),Drives score coverage; dbNSFP scores are missense-only.
+protein_change,Annotation,string,"AA change, 1-letter, canonical transcript. Blank for non-coding.",ANNOVAR,
+clinical_label,Label,string,Pathogenic or Benign.,ClinVar/ENIGMA,Per-term parsed; conflicting/VUS excluded.
+label_binary,Label,int,"1=Pathogenic, 0=Benign.",derived,
+label_source,Label,string,CLINVAR (internal) or ENIGMA (external).,BRCA Exchange raw,
+dataset_role,Split,string,internal (train/test) or external (held-out ENIGMA validation).,derived,Zero variant overlap between pools by construction.
+ClinPred,Score 1,float,"ClinPred (0-1, higher=damaging).",myvariant.info/dbNSFP,Missense-only.
+MetaRNN,Score 2,float,"MetaRNN (0-1, higher=damaging).",dbNSFP5.3.1a_grch38.gz (local),"RECOMPUTED 2026-07-25 via pipeline/02_local_dbnsfp_scores.py, MANE-Select canonical transcript. Old value (myvariant.info, max-across-all-transcripts) differed meaningfully for ~4.9% of scored variants (max diff 0.205); the rest of the raw diff was floating-point noise, not a real change. Original backed up at BRCA_final_dataset.csv.pre_canonical_transcript_fix.bak. Missense-only."
+REVEL,Score 3,float,"REVEL (0-1, higher=damaging).",myvariant.info/dbNSFP,Missense-only.
+MetaSVM,Score 4,float,MetaSVM (higher=damaging).,myvariant.info/dbNSFP,Missense-only.
+MetaLR,Score 5,float,"MetaLR (0-1, higher=damaging).",myvariant.info/dbNSFP,Missense-only.
+VEST4,Score 6,float,"VEST4 (0-1, higher=damaging).",dbNSFP5.3.1a_grch38.gz (local),"RECOMPUTED 2026-07-25 via pipeline/02_local_dbnsfp_scores.py, MANE-Select canonical transcript. Old value (myvariant.info, max-across-all-transcripts, same wrong-isoform risk already fixed for ANNOVAR's ExonicFunc) differed meaningfully for ~64.9% of scored variants (mean diff 0.035, max 0.516) -- a real, widespread correction, not a footnote. Original backed up at BRCA_final_dataset.csv.pre_canonical_transcript_fix.bak. Missense-only."
+AlphaMissense,Score 7,float,"AlphaMissense (0-1, higher=damaging).",dbNSFP5.3.1a_grch38.gz (local),"RECOMPUTED 2026-07-25 via pipeline/02_local_dbnsfp_scores.py, MANE-Select canonical transcript. Old value (myvariant.info, max-across-all-transcripts) differed meaningfully for ~61.5% of scored variants (mean diff 0.022, max 0.450) -- a real, widespread correction to the project's strongest single tool. Original backed up at BRCA_final_dataset.csv.pre_canonical_transcript_fix.bak. Missense-only; strongest single tool (AUC~0.95, re-verify after this fix)."
+PrimateAI,Score 8,float,"PrimateAI (0-1, higher=damaging).",myvariant.info/dbNSFP,Missense-only.
+CADD_raw,Score 9,float,CADD raw (higher=damaging).,myvariant.info/dbNSFP,Same tool as CADD_phred.
+CADD_phred,Score 10,float,CADD Phred-scaled (higher=damaging).,myvariant.info/dbNSFP,Same tool as CADD_raw.
+ESM1b,Score 11,float,"ESM1b protein-LM effect. SIGN-CORRECTED: negated from the raw log-likelihood-ratio so higher=damaging, consistent with the other scores.",Computed locally (ESM1b),"Was inverted (AUC 0.10); now correct (AUC 0.9220, re-verified 2026-07-25). VERIFIED, not assumed: this column's value was compared against dbNSFP's own ESM1b field (r=0.9954, cross-validating correctness) and against pipeline/03_merge_annotation.py's own output (found to STILL be the old inverted version, AUC 0.078 -- the sign fix had been applied manually to this dataset but never patched back into the script). Fixed 2026-07-25 in pipeline/03_merge_annotation.py's load_esm1b_scores() (added the missing negation); regenerated pipeline/*_final_annotated.csv now matches this column exactly (mean diff 0.000016, floating-point noise only). Do not treat pipeline/*_final_annotated.csv as the traceable reference for ESM1b without re-running it after this fix."
+Eigen,Score 12,float,Eigen raw coding score (higher=damaging). NEW.,dbNSFP5.3.1a_grch38.gz (local),"RECOMPUTED 2026-07-24 via pipeline/02_local_dbnsfp_scores.py -- original values had no traceable producing script (claimed source myvariant.info/dbNSFP could not be reproduced by any script in this project). New values verified against the original: 10,884/10,884 same coverage, mean abs diff 0.000025 (max 0.00005) -- same underlying data, now traceable. Original backed up at BRCA_final_dataset.csv.pre_eigen_traceability_fix.bak. Missense-only, 100% coverage where missense. Single-feat AUC 0.934."
+EigenPC,Score 13,float,Eigen-PC raw coding score (higher=damaging). NEW.,dbNSFP5.3.1a_grch38.gz (local),"RECOMPUTED 2026-07-24 via pipeline/02_local_dbnsfp_scores.py -- same traceability fix and verification as Eigen above. Missense-only. Single-feat AUC 0.935."
+n_scores_available,Quality,int,How many of the 13 scores are present (0-13).,derived,0 for non-missense variants.
+all_11_scores_present,Quality,bool,True if the original 11 scores are present. This defines the complete-case set the CURRENT models were trained on.,derived,Kept for model traceability.
+all_13_scores_present,Quality,bool,True if all 13 scores (incl. Eigen/EigenPC) present. Use for RETRAINING with the expanded feature set.,derived,"Equals the 11-score set here (8,955 rows) since Eigen covers the same missense population."

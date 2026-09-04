@@ -1,0 +1,13 @@
+pool,label,n,cutoff,n_pre_cutoff,pct_pre_cutoff
+internal,pathogenic,314,"BayesDel (2015-08-04, exact, Feng 2017)",140,44.6
+internal,pathogenic,314,"MetaRNN (2020-01-01, conservative proxy, Li C 2022)",205,65.3
+internal,pathogenic,314,"generic 2015-2018-era tools (2018-12-31, conservative proxy)",183,58.3
+internal,benign,8295,"BayesDel (2015-08-04, exact, Feng 2017)",1626,19.6
+internal,benign,8295,"MetaRNN (2020-01-01, conservative proxy, Li C 2022)",4232,51.0
+internal,benign,8295,"generic 2015-2018-era tools (2018-12-31, conservative proxy)",3106,37.4
+external,pathogenic,74,"BayesDel (2015-08-04, exact, Feng 2017)",53,71.6
+external,pathogenic,74,"MetaRNN (2020-01-01, conservative proxy, Li C 2022)",68,91.9
+external,pathogenic,74,"generic 2015-2018-era tools (2018-12-31, conservative proxy)",66,89.2
+external,benign,270,"BayesDel (2015-08-04, exact, Feng 2017)",255,94.4
+external,benign,270,"MetaRNN (2020-01-01, conservative proxy, Li C 2022)",270,100.0
+external,benign,270,"generic 2015-2018-era tools (2018-12-31, conservative proxy)",265,98.1

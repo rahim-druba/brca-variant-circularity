@@ -1,0 +1,9 @@
+,n_features,cv_roc_auc,roc_auc,auprc,f1
+full12_baseline_internal,12.0,0.9679,0.9779,0.8197,0.7752
+full12_baseline_external,12.0,0.9679,0.9986,0.9949,0.9595
+full12_plus_eigen_internal,14.0,0.9656,0.9728,0.8282,0.813
+full12_plus_eigen_external,14.0,0.9656,0.9979,0.9936,0.9655
+full12_minus_primateai_internal,11.0,0.9644,0.9747,0.816,0.7385
+full12_minus_primateai_external,11.0,0.9644,0.9978,0.9919,0.9595
+full12_minus_primateai_plus_eigen_internal,13.0,0.9636,0.9668,0.8148,0.7597
+full12_minus_primateai_plus_eigen_external,13.0,0.9636,0.9982,0.9939,0.9444

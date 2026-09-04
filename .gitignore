@@ -1,0 +1,16 @@
+# Restricted human genotype data - never commit, regardless of where it's staged from
+**/serikzhan_kazakh_vcfs/
+**/*.vcf.gz
+
+# Third-party reference databases too large / license-restricted to redistribute
+**/dbNSFP*.gz
+**/*.chain.gz
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db

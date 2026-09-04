@@ -1,0 +1,49 @@
+tool,source_paper,test_set,metric,value,gene_scope,notes
+Our models (7 architectures),This work,Internal test (n=1722),ROC AUC,0.9695-0.9865,BRCA1+BRCA2 only,statistically indistinguishable from each other (this work Section 7)
+Our models (7 architectures),This work,External ENIGMA (n=344),ROC AUC,0.9981-0.9996,BRCA1+BRCA2 only,external pool has real training-era overlap for 7 of 13 features (this work Section 8.2)
+Hybrid-B,This work,BRCA1-DMS functional (n=2361),Spearman rho,-0.58,BRCA1 only,not an AUC; independent of any clinical database
+BayesDel,"Feng 2017, Hum Mutat (articles/54 Feng.pdf)",ENIGMA BRCA1+BRCA2 (n=173),ROC AUC,0.94,BRCA1+BRCA2 only,circularity-free by ENIGMA's own classification method; closest true apples-to-apples comparison to our external set
+MetaSVM,"Feng 2017, same ENIGMA BRCA1+BRCA2 test",ENIGMA BRCA1+BRCA2 (n=173),ROC AUC,0.90,BRCA1+BRCA2 only,MetaSVM is one of our own 13 features
+MetaLR,"Feng 2017, same ENIGMA BRCA1+BRCA2 test",ENIGMA BRCA1+BRCA2 (n=173),ROC AUC,0.88,BRCA1+BRCA2 only,MetaLR is one of our own 13 features
+CADD,"Feng 2017, same ENIGMA BRCA1+BRCA2 test",ENIGMA BRCA1+BRCA2 (n=173),ROC AUC,0.88,BRCA1+BRCA2 only,CADD is one of our own 13 features
+AlphaMissense,"Cheng et al. 2023, Science (articles/51 Cheng.pdf)",ClinVar missense (genome wide),ROC AUC,0.940,genome wide,AlphaMissense is one of our own 13 features; not gene specific
+EVE,"cited within Cheng et al. 2023",ClinVar missense (genome wide),ROC AUC,0.911,genome wide,next best non clinically trained baseline in that paper
+Eigen,"Ionita-Laza et al. 2016, Nat Genet (articles/53 IonitaLaza.pdf)",ClinVar missense (genome wide),ROC AUC,0.864,genome wide,Eigen is one of our own 13 features
+CADD v1.0,"same Ionita-Laza et al. 2016 comparison",ClinVar missense (genome wide),ROC AUC,0.837,genome wide,
+ClinPred/MetaRNN,"Rastogi et al. 2025, Hum Genet (articles/47 Rastogi.pdf)","CAGI6 full benchmark (post 2021 ClinVar, genome wide)",ROC AUC,0.92,genome wide,both are our own 13 features; most rigorous circularity controlled genome wide benchmark reviewed
+AlphaMissense,"same Rastogi et al. 2025 full benchmark",CAGI6 full benchmark,ROC AUC,0.88,genome wide,
+ClinPred/MetaRNN,"same Rastogi et al. 2025, high specificity regime FPR<=5%",CAGI6 high specificity subset,ROC AUC,0.77,genome wide,the clinically relevant operating point per that paper
+REVEL,"same Rastogi et al. 2025, high specificity regime",CAGI6 high specificity subset,ROC AUC,0.73,genome wide,REVEL is one of our own 13 features
+AlphaMissense,"same Rastogi et al. 2025, high specificity regime",CAGI6 high specificity subset,ROC AUC,0.72,genome wide,
+REVEL,"Mahmood et al. 2017, Hum Genomics",ClinVarHC (clinical database),ROC AUC,0.945,genome wide,
+REVEL,"same Mahmood et al. 2017, functional assay ground truth",BRCA1-DMS (Starita et al. version),ROC AUC,0.737,BRCA1 only,directly comparable in spirit to our own DMS check; independent confirmation that clinical database AUCs overstate functional accuracy
+REVEL,"same Mahmood et al. 2017, functional assay ground truth",UniFun (2209 proteins),ROC AUC,0.629,genome wide,
+REVEL,"Li J et al. 2018, Nucleic Acids Res",ClinVar germline,ROC AUC,0.920,genome wide,
+REVEL,"same Li J et al. 2018, functional assay ground truth",PPARG experimentally validated,ROC AUC,0.849,single gene (PPARG),
+SIFT + PolyPhen-2 (best of either tool),"Zhunussova et al. 2023, Oncotarget (the Kazakh cohort paper in this project)",559 rare missense VUS in 94 gene panel,fraction flagged deleterious,291/559 (52.1%),multi gene panel incl BRCA1+BRCA2,no AUC computed in that paper at all; flagged only by at least one of two tools from over a decade ago
+SIFT + PolyPhen-2 (both tools agree),"same Zhunussova et al. 2023",559 rare missense VUS,fraction flagged deleterious,53/559 (9.5%),multi gene panel incl BRCA1+BRCA2,
+"BRCA-ML (Gradient Boosting, gene specific)","Hart et al. 2020, npj Breast Cancer (articles/56 Hart.pdf)",BRCA1 functional-assay labels (SGE/HDR),MCC,0.66,BRCA1 only,sens 89.5% / spec 91.5%; most directly comparable gene-specific paper found (same functional ground truth as our own DMS check)
+"BRCA-ML (XGBoost, gene specific)","same Hart et al. 2020",BRCA2 functional-assay labels (HDR),MCC,0.73,BRCA2 only,sens 97.7% / spec 85.1%
+MutPredScore (best single predictor),"same Hart et al. 2020",BRCA1 functional-assay labels,MCC,0.399,BRCA1 only,sens 94.5% / spec 77.8%; best of the non-gene-specific individual scores they tested
+BayesDel (best single predictor),"same Hart et al. 2020",BRCA2 functional-assay labels,MCC,0.673,BRCA2 only,sens 85.3% / spec 83.0%; consistent with BayesDel's edge in Feng 2017 above
+Gene-specific XGBoost model,"Khandakji & Mifsud 2022, Front Genet (articles/57 Khandakji 2022.pdf)",ENIGMA-classified BRCA2 (20% held out),accuracy,0.999,BRCA2 only,"same-source-as-external-pool caveat applies (ENIGMA derived, like our own external set)"
+Gene-specific XGBoost model,"same Khandakji & Mifsud 2022",independent functional-score VUS set,accuracy,up to 0.913,BRCA2 only,
+Gene-specific XGBoost model,"Khandakji et al. 2023, Physiol Genomics (articles/58 Khandakji 2023.pdf)",ENIGMA-classified BRCA1 (20% held out),accuracy,0.999,BRCA1 only,same-source-as-external-pool caveat applies
+Gene-specific XGBoost model,"same Khandakji et al. 2023",independent functional-score VUS set,accuracy,0.934,BRCA1 only,
+Gene-specific Random Forest,"Kang et al. 2023, Sci Rep (articles/59 Kang.pdf)",10 held-out test sets (rare missense),AUPRC,0.9835,BRCA1 only,best of 8 ML algorithms x 3 training regimes; several others statistically tied (paired t-test P=0.08-0.11) - same "no single winner" pattern as our own pairwise-significance result
+Gene-specific Random Forest,"same Kang et al. 2023",10 held-out test sets (rare missense),AUPRC,0.9467,BRCA2 only,"disease-specific (not gene-specific) training generally beat gene-specific for BRCA2, opposite of BRCA1"
+REVEL,"same Kang et al. 2023, genome-wide baseline",same BRCA1/BRCA2 test sets,AUPRC,roughly 0.6-0.75,BRCA1+BRCA2,visibly the weakest of the genome-wide predictors on their boxplot; REVEL is one of our own 13 features
+Gene-specific/generic models (best of several),"Aljarf et al. 2022, Sci Rep (articles/60 Aljarf.pdf)",10-fold cross-validation,MCC,up to 0.98,BRCA1+BRCA2,cross-validation only; no matched external ROC AUC reported
+Gene-specific/generic models (best of several),"same Aljarf et al. 2022",independent non-redundant blind test,MCC,up to 0.89,BRCA1+BRCA2,
+MARGINAL (2-stage serial ML classifier),"Karalidou et al. 2022, Biomolecules (articles/62 Karalidou.pdf)",first-stage classifier,accuracy,0.92,BRCA1+BRCA2,recall 92% / specificity 90%
+MARGINAL (2-stage serial ML classifier),"same Karalidou et al. 2022",second-stage classifier (uncertain cases only),accuracy,0.98,BRCA1+BRCA2,recall 98% / specificity 98%
+SNPred (CatBoost ensemble),"Molotkov et al. 2023, medRxiv preprint (articles/64 Molotkov.pdf)",BRCA1-DMS/SGE (Findlay et al. 2018 - same dataset as our own functional check),AUC PR,0.794,BRCA1 only,directly comparable to our own BRCA1-DMS validation; not peer reviewed
+BayesDel (second-best predictor),"same Molotkov et al. 2023, same BRCA1-DMS/SGE set",BRCA1-DMS/SGE,AUC PR,0.731,BRCA1 only,
+"Tumor-genomic-profiling model (not sequence-based)","Kondrashova et al. 2026, medRxiv preprint (articles/66 Kondrashova.pdf)",real-world tumor profiles with >=5 observations,ROC AUC,1.000,BRCA1 only,"orthogonal evidence type (HRD signature/co-mutation/zygosity), not comparable feature domain to ours; not peer reviewed"
+Tumor-genomic-profiling model,"same Kondrashova et al. 2026",real-world tumor profiles with >=5 observations,ROC AUC,0.989,BRCA2 only,
+vERnet-B (CNN on AlphaFold2 structure),"Li C et al. 2023, Theranostics (articles/67 Li C 2023.pdf)",BRCT-domain missense variants,accuracy,0.85,"BRCA1 only (BRCT domain only)","structure-based, not sequence/conservation-based; narrow scope"
+Semi-supervised GMM on protein-LM embeddings,"Hidayat et al. 2023, Procedia Comput Sci (articles/68 Hidayat.pdf)",labeled BRCA1 missense test subset,AUC / accuracy,0.7927 / 0.7158,BRCA1 only,weakest-performing supervised comparator in this batch
+PNN,"KhajePasha et al. 2018, arXiv preprint (articles/69 KhajePasha.pdf)",jackknife cross-validation,accuracy,0.8797,BRCA1 only,"not peer reviewed; jackknife only, no independent test set"
+PNN,"same KhajePasha et al. 2018",jackknife cross-validation,accuracy,0.8217,BRCA2 only,
+DNN-stacked autoencoder,"same KhajePasha et al. 2018",jackknife cross-validation,accuracy,0.9541,BRCA1 only,
+DNN-stacked autoencoder,"same KhajePasha et al. 2018",jackknife cross-validation,accuracy,0.9280,BRCA2 only,

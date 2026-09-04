@@ -1,0 +1,15 @@
+eval_set,model,roc_auc,roc_auc_CI,f1@0.5,vs_top_model
+internal-test,RandomForest,0.9769,"[0.960, 0.991]",0.7211,p=0.016 vs top (significant)
+internal-test,SVM,0.9865,"[0.978, 0.993]",0.7586,is the top point estimate
+internal-test,GradientBoosting,0.9695,"[0.941, 0.990]",0.6235,p=0.048 vs top (significant)
+internal-test,XGBoost,0.9754,"[0.960, 0.988]",0.7656,p=0.010 vs top (significant)
+internal-test,ML_VotingEnsemble,0.9794,"[0.964, 0.992]",0.8167,p=0.068 vs top (not significant)
+internal-test,StackingEnsemble,0.979,"[0.963, 0.992]",0.6506,p=0.040 vs top (significant)
+internal-test,Hybrid-B,0.9745,"[0.951, 0.992]",0.671,p=0.058 vs top (not significant)
+external,RandomForest,0.9995,"[0.999, 1.000]",0.9799,p=0.716 vs top (not significant)
+external,SVM,0.9981,"[0.994, 1.000]",0.9577,p=0.480 vs top (not significant)
+external,GradientBoosting,0.9986,"[0.996, 1.000]",0.9136,p=0.126 vs top (not significant)
+external,XGBoost,0.9982,"[0.996, 1.000]",0.9371,p=0.054 vs top (not significant)
+external,ML_VotingEnsemble,0.9993,"[0.998, 1.000]",0.9583,p=0.598 vs top (not significant)
+external,StackingEnsemble,0.9996,"[0.999, 1.000]",0.9367,is the top point estimate
+external,Hybrid-B,0.9986,"[0.997, 1.000]",0.9308,p=0.130 vs top (not significant)

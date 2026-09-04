@@ -1,0 +1,15 @@
+eval_set,model,brier_score
+internal-test,RandomForest,0.0179
+internal-test,SVM,0.0133
+internal-test,GradientBoosting,0.0288
+internal-test,XGBoost,0.0153
+internal-test,ML_VotingEnsemble,0.0123
+internal-test,StackingEnsemble,0.0364
+internal-test,Hybrid-B,0.0358
+external,RandomForest,0.0124
+external,SVM,0.0153
+external,GradientBoosting,0.0317
+external,XGBoost,0.0155
+external,ML_VotingEnsemble,0.013
+external,StackingEnsemble,0.0285
+external,Hybrid-B,0.0339
